@@ -1,4 +1,14 @@
-# Getting Started
+# Cloud Custodian Website docs
+
+This repo generates the website of cloud custodian at https://cloudcustodian.io
+
+It uses mkdocs to build a static site.
+
+When creating pull requests, staging previews are created at
+http://docs-stage.cloudcustodian.io.s3-website-us-east-1.amazonaws.com/docs/{{pull_request_number}}/
+
+
+## Getting Started
 
 * Make sure to have [Python 3.8+ installed](https://www.python.org/downloads/)
 * Make sure to have [Poetry 1.2+ installed](https://python-poetry.org/docs/)
