@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: read    
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,11 +29,18 @@ jobs:
       - run: poetry run mkdocs build -v
       - name: Deploy Stage Docs
         uses: ./.github/composites/docs-publish
-        if: ${{ github.event.number }}        
+        if: ${{ github.event.number }}
         with:
           aws-role: ${{ secrets.DOC_PUBLISH_ROLE }}
           bucket-url: s3://docs-stage.cloudcustodian.io/docs/${{github.event.number}}
           docs-dir: site
+      - name: Comment PR with execution number
+        uses: thollander/actions-comment-pull-request@v2
+        if: ${{ github.event.number }}        
+        with:
+          message: |
+            docs preview at http://docs-stage.cloudcustodian.io.s3-website-us-east-1.amazonaws.com/docs/${{github.event.number}}
+          comment_tag: staging
       - name: Deploy Docs
         uses: ./.github/composites/docs-publish
         if: ${{ github.event_name == 'push' }}
