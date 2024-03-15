@@ -26,11 +26,11 @@ release of Python manually. [This guide](https://realpython.com/installing-pytho
 
     To install Cloud Custodian for Azure, you will also need to run:
 
-        pip install c7n_azure # Install Azure package
+        pip install c7n-azure # Install Azure package
 
     To install Cloud Custodian for GCP, you will also need to run:
 
-        pip install c7n_gcp   # Install GCP Package
+        pip install c7n-gcp   # Install GCP Package
 
 
 === "Windows" 
@@ -43,11 +43,11 @@ release of Python manually. [This guide](https://realpython.com/installing-pytho
 
     To install Cloud Custodian for Azure, you will also need to run:
 
-        pip install c7n_azure
+        pip install c7n-azure
 
     To install Cloud Custodian for GCP, you will also need to run:
 
-        pip install c7n_gcp
+        pip install c7n-gcp
 
 === "Docker"
 
